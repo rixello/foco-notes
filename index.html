@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foco Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Foco Notes</h1>
+
+    </header>
+    <main>
+        <div class="module-container" id="notes-container"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Foco</p>
+    </footer>
+
+    <div id="terminal-overlay">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">Terminal</span>
+                <button id="close-terminal">&times;</button>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-output"></div>
+                <div class="terminal-input-container">
+                    <span class="terminal-prompt">$</span>
+                    <input type="text" id="terminal-input" autofocus>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
