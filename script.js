@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const terminalOutput = document.querySelector('.terminal-output');
     const closeTerminalButton = document.getElementById('close-terminal');
     const notesContainer = document.getElementById('notes-container');
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
 
     loadSavedNotes();
 
@@ -44,9 +46,35 @@ document.addEventListener('DOMContentLoaded', function () {
             case 'close_all':
                 closeAllModules();
                 break;
+            case 's':
+                if (args[0] === 'head') showHeader();
+                else if (args[0] === 'foot') showFooter();
+                else terminalOutput.innerHTML += `<div>Unknown command: s ${args.join(' ')}</div>`;
+                break;
+            case 'h':
+                if (args[0] === 'head') hideHeader();
+                else if (args[0] === 'foot') hideFooter();
+                else terminalOutput.innerHTML += `<div>Unknown command: h ${args.join(' ')}</div>`;
+                break;
             default:
                 terminalOutput.innerHTML += `<div>Unknown command: ${cmd}</div>`;
         }
+    }
+
+    function showHeader() {
+        header.style.display = 'block';
+    }
+
+    function hideHeader() {
+        header.style.display = 'none';
+    }
+
+    function showFooter() {
+        footer.style.display = 'block';
+    }
+
+    function hideFooter() {
+        footer.style.display = 'none';
     }
 
     function createNewNoteModule(args) {
@@ -236,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function () {
         saveNotes();
     }
 
-    // Select a module to apply move commands
     document.addEventListener('click', (event) => {
         const module = event.target.closest('.module');
         if (module) {
